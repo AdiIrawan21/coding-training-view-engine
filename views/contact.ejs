@@ -36,7 +36,7 @@
       <% if (contacts) { %>
       <ul>
         <!-- jika tersedia maka akan menampilkan list data-->
-        <% contacts.forEach(function(contact) { %>
+        <% contacts.forEach( contact => { %>
         <li><h4>Name : <%= contact.nama %></h4></li>
         <li><h4>Phone Number : <%= contact.mobile %></h4></li>
         <br />
