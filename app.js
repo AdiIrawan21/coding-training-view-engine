@@ -14,12 +14,7 @@ app.get("/about", (req, res) => {
 
 app.get("/contact", (req, res) => {
   // Mendefinisikan variabel `contacts` untuk menyimpan data kontak
-  let contacts = [
-    { nama: "Adi Irawan", mobile: "087787309121", email: "adiirwn10@gmail.com" },
-    { nama: "adi", mobile: "087787309121", email: "adi@gmail.com" },
-    { nama: "Raditya", mobile: "081212877413", email: "raditya@gmail.com" },
-    { nama: "Arya ", mobile: "08121283412", email: "arya@gmail.com" },
-  ];
+  let contacts = [];
   // Mengecek apakah variabel `contacts` kosong
   if (contacts.length === 0) {
     // Jika variabel `contacts` kosong, maka render halaman `contact.ejs`
