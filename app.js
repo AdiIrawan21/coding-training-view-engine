@@ -1,7 +1,6 @@
 const express = require("express"); // import module express.js
 const app = express(); // membuat aplikasi express
 const port = 3001; // konfigurasi port
-const contacts = require("./contacts.json"); // import module contacts.json
 
 app.set("view engine", "ejs"); //informasi menggunakan ejs
 
@@ -14,7 +13,21 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/contact", (req, res) => {
-  res.render("contact", { contact: contacts }); // mengirim data contacts.json ke views contact.ejs
+  // Mendefinisikan variabel `contacts` untuk menyimpan data kontak
+  let contacts = [];
+  // Mengecek apakah variabel `contacts` kosong
+  if (contacts.length === 0) {
+    // Jika variabel `contacts` kosong, maka render halaman `contact.ejs`
+    // dengan data `contacts` yang bernilai `null` dan pesan "Data tidak tersedia"
+    res.render("contact", {
+      contacts: null,
+      pesan: "Data tidak tersedia",
+    });
+  } else {
+    // Jika variabel `contacts` tidak kosong, maka render halaman `contact.ejs`
+    // dengan data `contacts` yang sudah terisi
+    res.render("contact", { contacts });
+  }
 });
 
 app.use("/", (req, res) => {

@@ -30,17 +30,22 @@
     </nav>
     <main>
       <br />
-      <h2>Daftar Kontak</h2>
+      <h2 style="text-align: center">Daftar Kontak</h2>
       <br />
+      <!-- ===========  Melakukan kondisi untuk menampilkan data kontak ===========-->
+      <% if (contacts) { %>
       <ul>
-        <!-- ===========  Melakukan Perulangan untuk menampilkan daftar contacts.json ===========-->
-        <% contact.forEach(cons => { %>
-        <li><h4>Name : <%= cons.nama %></h4></li>
-        <li><h4>Phone Number : <%= cons.mobile %></h4></li>
+        <!-- jika tersedia maka akan menampilkan list data-->
+        <% contacts.forEach(function(contact) { %>
+        <li><h4>Name : <%= contact.nama %></h4></li>
+        <li><h4>Phone Number : <%= contact.mobile %></h4></li>
         <br />
-        <% }) %>
-        <!-- ==========          END             ==========-->
+        <% }); %>
       </ul>
+      <!-- jika tidak ada data maka akan menampilkan pesan dari data app.js-->
+      <% } else { %>
+      <h5 style="text-align: center"><%= pesan %></h5>
+      <% } %>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
